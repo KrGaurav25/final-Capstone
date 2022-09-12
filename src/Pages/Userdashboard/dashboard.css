@@ -1,0 +1,33 @@
+.heading
+{
+     text-align: center;  
+}
+.searching
+{
+    width: 50%;
+    margin: auto;
+}
+.top
+{margin-right: 75%;}
+.appl
+{
+    /* margin-left: 20%; */
+    margin-top:10%;
+}
+.nav-icon:hover{
+color: blueviolet;
+}
+.logout{
+    margin-left: 110%;
+}
+.logout:hover{
+    color: blueviolet;
+}
+.sort{
+    background-color: aquamarine;
+}
+.profile-dashboard{
+    color: blueviolet;
+    font-style: italic;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

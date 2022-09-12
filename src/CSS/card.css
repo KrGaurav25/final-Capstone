@@ -1,0 +1,10 @@
+.card-colour{
+    margin-bottom: 10%;
+    padding: 15px;
+    background-color:coral;
+  box-shadow: 10px 10px;
+}
+.wishlist-head,.apply-head{
+    background-color: blue;
+}
+
