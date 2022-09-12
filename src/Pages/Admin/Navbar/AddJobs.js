@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Editor from "../widgets/Editor";
 import AdminNav from "./AdminNav";
+import "../../../CSS/AddJobs.css"
 import {
   DEFAULT_JOB_LEVELS,
   DEFAULT_JOB_CATEGORIES,
