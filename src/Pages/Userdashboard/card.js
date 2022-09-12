@@ -22,7 +22,7 @@ const Card=(props)=>
     }).catch((e)=>console.log(e))
     alert("Job applied Successfully")
     
-    axios.post('http://localhost:9000/applicant',{itemid,userId})
+    axios.post('http://localhost:9000/apply/applicant',{itemid,userId})
     .then((res)=>console.log(res)).catch((e)=>console.log(e))
 }
  

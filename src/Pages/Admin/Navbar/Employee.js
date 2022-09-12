@@ -158,6 +158,8 @@ function ViewJobApplicant() {
 const handleAccept = (id) => {
   alert(id._id + " is Accepted");
   dispatch(add(id))
+  const newData= data.filter((item)=>item._id!==id._id)
+  setdata(newData)
 };
   return (
     <div>

@@ -16,9 +16,8 @@ const MyEmployees = () => {
         return (
             <tr key={index}>
                 <td>{item.title}</td>
-                <td>{item.maxApplicants}</td>
-                <td>{item.maxPositions}</td>
-                <td>{item.maxPositions}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
                 <td><Button onClick={()=>handleRemove(item._id)}>Terminate</Button></td>
             </tr>
         )
@@ -32,10 +31,9 @@ const MyEmployees = () => {
                 <ReactBootstrap.Table striped variant='dark' hover>
                     <thead>
                         <tr>
-                            <th>Item Title</th>
-                            <th>Item maxApplicants</th>
-                            <th>Item maxPositions</th>
-                            <th>Add this item</th>
+                            <th>Title</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Terminate Employment</th>
                         </tr>
                     </thead>
