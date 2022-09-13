@@ -7,11 +7,16 @@ import Card from 'react-bootstrap/Card'
 import './Employee.css'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios";
-//http://localhost:9000/dashboard
-//user: http://localhost:9000/user
+
 const ViewJobPosted = () => {
   const [jobData, setJobData] = useState([])
-  useEffect(() => {
+  const Navigate = useNavigate();
+  const handleJobUpdate = (id) => {
+    console.log("Inside Update" + " " + id)
+    Navigate('/updatejobs', { id })
+  }
+  
+  const handleJobs=(e)=>{
     const fetchJobs = async () => {
       const Jobs = await axios.get("http://localhost:9000/dashboard")
       const job = await Jobs.data;
@@ -19,21 +24,17 @@ const ViewJobPosted = () => {
       setJobData(job)
     }
     fetchJobs();
-  }, [])
-
-  // const dispatch = useDispatch();
-  // const { data: jobsData, status } = useSelector((state) => state.jobs)
-  // useEffect(()=>{
-  //   dispatch(fetchJobs());
-  // },[])
-
-  const Navigate = useNavigate();
-  const handleJobUpdate = (id) => {
-    console.log("Inside Update" + " " + id)
-    Navigate('/updatejobs', { id })
   }
   const handleJobDelete = (id) => {
-    alert("Inside Delete" + " " + id)
+    const newData= jobData.filter((item) => item._id !== id)
+    setJobData(newData)
+  }
+  const handlesort=(e)=>{
+    e.preventDefault()
+    const x=jobData.sort((a,b)=>{
+      return (a.salary-b.salary);
+    })
+    setJobData(x)
   }
   const renderItem = (item, index) => {
     return (
@@ -78,17 +79,14 @@ const ViewJobPosted = () => {
       </Card>
     )
   }
-  // if (status === STATUSES.LOADING){
-  //   return <h2>LOADING....</h2>
-  // }
   return (
     <div>
       <AdminNav />
-      <h1 className='navbrand'>My Jobs</h1>
-      <Link to='/addjobs'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add New</ReactBootstrap.Button></Link>
+      <h1 className='navbrand'><ReactBootstrap.Button onClick={(e)=>handleJobs(e)}>My Jobs</ReactBootstrap.Button></h1>      
+      <button className="btn btn-success" onClick={(e)=>handlesort(e)}>Salary Sort</button>
       <div className="cardblockstyle">
         {
-          jobData.map(renderItem)
+          jobData? jobData.map(renderItem): "No Data"
         }
       </div>
     </div>

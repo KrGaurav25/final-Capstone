@@ -32,7 +32,7 @@ export function fetchApplicants() {
     return async function fetchApplicantThunk(dispatch, getState) {
         dispatch(setStatus(STATUSES.LOADING))
         try {
-            const res = await axios.get("http://localhost:9000/dashboard")
+            const res = await axios.get("http://localhost:9000/apply/applicant")
             const result = res.data;
             dispatch(setApplicant(result))
             dispatch(setStatus(STATUSES.IDLE))
